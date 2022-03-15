@@ -12,6 +12,8 @@ struct MovingAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            // Instantiate an instance of the ViewModel
+                .environmentObject(MoveViewModel())
         }
     }
 }

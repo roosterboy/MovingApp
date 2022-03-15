@@ -1,0 +1,25 @@
+[
+  {
+    "id": 0,
+    "client": "George",
+    "moverName": "Fred",
+    "items":
+      {
+        "redStand": false,
+        "blueTable": false
+      }
+  },
+  {
+    "id": 1,
+    "client": "Mary",
+    "moverName": "Fred",
+    "items":
+      {
+        "redStand": false,
+        "glassTable": false,
+        "espressoMachine": false,
+        "grayCouch": false,
+        "brownStand": false
+      }
+  }
+]
