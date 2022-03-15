@@ -24,7 +24,13 @@ struct ContentView: View {
                                 JobDetail()
                                     .onAppear(perform: {
                                         model.beginJob(index)
-                                    }),
+                                    })
+                                .onDisappear(perform: {
+                                    // Update the job to match the current job being edited
+                                    if model.currentJob != nil {
+                                        model.movingJobsList[index] = model.currentJob!
+                                    }
+                                }),
                             label: {
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
