@@ -19,7 +19,7 @@ struct JobDetail: View {
                     let keys = model.currentJob!.items.map{$0.key}
                     let values = model.currentJob!.items.map {$0.value}
                     
-                    ForEach(keys.indices) { index in
+                    ForEach(keys.indices, id: \.self) { index in
                         if model.currentJob!.items[keys[index]] ?? true {
                             Button("\(keys[index])") {
                                 // Change the status of the item moved
