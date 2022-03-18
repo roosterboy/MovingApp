@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35A1022027E4382A00D47028 /* JobButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A1021F27E4382A00D47028 /* JobButtonStyle.swift */; };
 		754F716C27E01DC4007A540D /* MovingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754F716B27E01DC4007A540D /* MovingAppApp.swift */; };
 		754F716E27E01DC4007A540D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754F716D27E01DC4007A540D /* ContentView.swift */; };
 		754F717027E01DC4007A540D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 754F716F27E01DC4007A540D /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35A1021F27E4382A00D47028 /* JobButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobButtonStyle.swift; sourceTree = "<group>"; };
 		754F716827E01DC4007A540D /* MovingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		754F716B27E01DC4007A540D /* MovingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovingAppApp.swift; sourceTree = "<group>"; };
 		754F716D27E01DC4007A540D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				754F716D27E01DC4007A540D /* ContentView.swift */,
 				754F718327E020D6007A540D /* JobDetail.swift */,
+				35A1021F27E4382A00D47028 /* JobButtonStyle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				754F716E27E01DC4007A540D /* ContentView.swift in Sources */,
+				35A1022027E4382A00D47028 /* JobButtonStyle.swift in Sources */,
 				754F718427E020D6007A540D /* JobDetail.swift in Sources */,
 				754F718227E01ECA007A540D /* MoveViewModel.swift in Sources */,
 				754F718027E01E39007A540D /* MovingJob.swift in Sources */,

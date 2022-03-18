@@ -12,36 +12,27 @@ struct ContentView: View {
     @EnvironmentObject var model: MoveViewModel
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
+        NavigationView { //pretty nifty
+            ScrollView { //how these
+                VStack { //lined up!
                     // MARK: - Display Systems
-                    // Loop through all of the moving jobs
-                    ForEach(0..<model.movingJobsList.count) { index in
+                    // Loop through all of the MovingJobs
+                    ForEach($model.movingJobsList) { $job in
                         
-                        NavigationLink(
-                            destination:
-                                JobDetail()
-                                    .onAppear(perform: {
-                                        model.beginJob(index)
-                                    })
-                                .onDisappear(perform: {
-                                    // Update the job to match the current job being edited
-                                    if model.currentJob != nil {
-                                        model.movingJobsList[index] = model.currentJob!
-                                    }
-                                }),
-                            label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                    Text(model.movingJobsList[index].client)
-                                        .foregroundColor(.white)
-                                }
-                            })
-                        
-                        // Create a NavigationLink button to jump to another View from here
-                       
-                        
+                        NavigationLink {
+                            JobDetail(job: $job)
+                            //instead of relying on a currentJob property in
+                            //the view model, we just pass a binding to the job
+                            //we want to work with
+                        } label: {
+                            Text(job.client)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.teal, in: RoundedRectangle(cornerRadius: 10))
+                                //IMO, this modifier is nicer than using a ZStack with a RoundRectangle
+                                //behind some Text
+                                //it's cleaner and easier to see exactly what effect is desired
+                        }
                     }
                     
                 }

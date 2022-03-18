@@ -10,46 +10,36 @@ import SwiftUI
 struct JobDetail: View {
     @EnvironmentObject var model: MoveViewModel
     
-    @State var itemMoved: Bool = false
+    @Binding var job: MovingJob
     
     var body: some View {
         ScrollView {
             LazyVStack {
-                if model.currentJob != nil {
-                    let keys = model.currentJob!.items.map{$0.key}
-                    let values = model.currentJob!.items.map {$0.value}
-                    
-                    ForEach(keys.indices, id: \.self) { index in
-                        if model.currentJob!.items[keys[index]] ?? true {
-                            Button("\(keys[index])") {
-                                // Change the status of the item moved
-                                model.currentJob!.items[keys[index]] = false
-                                
-                            }
-                            .foregroundColor(.green)
-                        }
-                        // Else the item has not been moved yet
-                        else {
-                            Button("\(keys[index])") {
-                                // Change the status of the item moved to false
-                                model.currentJob!.items[keys[index]] = true
-                                
-                            }
-                            .foregroundColor(.red)
-                        }
-                        
+                //moved items
+                //we can use id: \.self here since we are working with
+                //an array of unique strings
+                ForEach(job.sortedItems, id: \.self) { item in
+                    Button(item) {
+                        //clicking this button removes this particular items
+                        //from the set of items
+                        //which causes our View to redraw
+                        job.items.remove(item)
                     }
+                    .buttonStyle(.jobButton(color: .green))
+                    //I used a custom ButtonStyle just to be fancy
                 }
-                else {
-                    Text("Has not loaded current job")
+                //unmoved items
+                ForEach(model.getUnmovedItems(for: job), id: \.self) { item in
+                    Button(item) {
+                        //clicking this button adds this particular items
+                        //to the set of items
+                        //which causes our View to redraw
+                        job.items.insert(item)
+                    }
+                    .buttonStyle(.jobButton(color: .red))
+                    //I used a custom ButtonStyle just to be fancy
                 }
             }
         }
-    }
-}
-
-struct JobDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        JobDetail()
     }
 }
