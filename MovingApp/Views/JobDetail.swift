@@ -28,7 +28,6 @@ struct JobDetail: View {
                     .padding()
                     .foregroundColor(.white)
                     .background(Color.green, in: RoundedRectangle(cornerRadius: 10))
-                    //I used a custom ButtonStyle just to be fancy
                 }
                 //unmoved items
                 ForEach(model.getUnmovedItems(for: job), id: \.self) { item in
@@ -41,7 +40,6 @@ struct JobDetail: View {
                     .padding()
                     .foregroundColor(.white)
                     .background(Color.red, in: RoundedRectangle(cornerRadius: 10))
-                    //I used a custom ButtonStyle just to be fancy
                 }
             }
         }
