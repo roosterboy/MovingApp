@@ -25,7 +25,9 @@ struct JobDetail: View {
                         //which causes our View to redraw
                         job.items.remove(item)
                     }
-                    .buttonStyle(.jobButton(color: .green))
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.green, in: RoundedRectangle(cornerRadius: 10))
                     //I used a custom ButtonStyle just to be fancy
                 }
                 //unmoved items
@@ -36,7 +38,9 @@ struct JobDetail: View {
                         //which causes our View to redraw
                         job.items.insert(item)
                     }
-                    .buttonStyle(.jobButton(color: .red))
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.red, in: RoundedRectangle(cornerRadius: 10))
                     //I used a custom ButtonStyle just to be fancy
                 }
             }
